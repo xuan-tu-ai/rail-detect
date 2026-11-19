@@ -1,0 +1,108 @@
+{
+  "px_per_m_matching_scale": 110.44,
+  "px_per_m_full_res": 331.3,
+  "track_span_m": 9.9,
+  "v2_matched": 1956,
+  "v2_unmatched": 46,
+  "v2_geometric_identity": 607,
+  "projected_boxes": 1948,
+  "projected_boxes_pass_ncc": 1419,
+  "objects_per_frame": {
+    "0": 4,
+    "1": 303,
+    "2": 8
+  },
+  "v2_labels_per_image": "1 (2001/2002 images)",
+  "groups": 18,
+  "group_size_max": 83,
+  "group_size_median": 8.0,
+  "frames_per_split": {
+    "train": 210,
+    "test": 65,
+    "val": 40
+  },
+  "test_frames_by_kind": {
+    "new_view": 36,
+    "new_placement": 29
+  },
+  "placements": {
+    "165": {
+      "n": 13,
+      "cls": "Person",
+      "split": "train"
+    },
+    "184": {
+      "n": 11,
+      "cls": "IronRod",
+      "split": "test"
+    },
+    "215": {
+      "n": 65,
+      "cls": "Jerrycan",
+      "split": "test/train/val"
+    },
+    "245": {
+      "n": 83,
+      "cls": "Branch",
+      "split": "test/train/val"
+    },
+    "265": {
+      "n": 10,
+      "cls": "Barrel",
+      "split": "test"
+    },
+    "266": {
+      "n": 31,
+      "cls": "Barrel",
+      "split": "train"
+    },
+    "272": {
+      "n": 45,
+      "cls": "IronRod",
+      "split": "train"
+    },
+    "294": {
+      "n": 31,
+      "cls": "Boulder",
+      "split": "test/train/val"
+    },
+    "309": {
+      "n": 12,
+      "cls": "Person",
+      "split": "val"
+    },
+    "313": {
+      "n": 6,
+      "cls": "Person",
+      "split": "test"
+    }
+  },
+  "objects_per_split_class": {
+    "test": {
+      "Barrel": 10,
+      "Boulder": 6,
+      "Branch": 22,
+      "IronRod": 12,
+      "Jerrycan": 13,
+      "Person": 6
+    },
+    "train": {
+      "Barrel": 32,
+      "Boulder": 21,
+      "Branch": 55,
+      "IronRod": 45,
+      "Jerrycan": 43,
+      "Person": 13
+    },
+    "val": {
+      "Barrel": 0,
+      "Boulder": 5,
+      "Branch": 14,
+      "IronRod": 0,
+      "Jerrycan": 10,
+      "Person": 12
+    }
+  },
+  "strong_pairs_crossing_train_test": 3729,
+  "note": "all frames come from the same ~10 m of track; splits separate obstacle placements, not track locations"
+}

@@ -1,0 +1,127 @@
+{
+  "v1_segmentation": {
+    "images": 315,
+    "image_sizes": {
+      "1920x1080": 315
+    },
+    "provided_masks_low_res_334x188": {
+      "rail_inside": 85,
+      "rail_lines": 190
+    },
+    "mask_area_pct_mean": {
+      "rail_inside": 29.5,
+      "rail_lines": 4.5
+    },
+    "derived_vs_provided_fullres_iou": {
+      "rail_inside": {
+        "n": 230,
+        "mean": 0.9951,
+        "min": 0.4698
+      },
+      "rail_lines": {
+        "n": 125,
+        "mean": 0.9834,
+        "min": 0.9474
+      }
+    }
+  },
+  "v2_obstacle": {
+    "images": 2002,
+    "author_split_images": {
+      "train": 1611,
+      "test": 391
+    },
+    "image_sizes": {
+      "1920x1080": 1877,
+      "1080x1920": 125
+    },
+    "boxes_per_class": {
+      "Branch": 548,
+      "IronRod": 346,
+      "Barrel": 272,
+      "Boulder": 208,
+      "Jerrycan": 395,
+      "Person": 234
+    },
+    "boxes_per_image": {
+      "1": 2001,
+      "2": 1
+    },
+    "box_w_px_p5_p50_p95": [
+      158.0,
+      456.0,
+      1149.0
+    ],
+    "box_h_px_p5_p50_p95": [
+      98.0,
+      318.0,
+      968.0
+    ],
+    "matched_to_v1_frame": 1956,
+    "unaugmented_copies": 607,
+    "distinct_source_frames": 314,
+    "copies_per_source_frame": {
+      "mean": 6.23,
+      "min": 1.0,
+      "max": 18.0
+    },
+    "flipped": 846,
+    "abs_rotation_deg_p50_p95": [
+      0.0,
+      90.0
+    ],
+    "author_split_frames_on_both_sides": "160/314"
+  },
+  "v1_obstacle_labels_consolidated": {
+    "frames": 315,
+    "boxes_per_class": {
+      "Branch": 91,
+      "Jerrycan": 66,
+      "IronRod": 57,
+      "Barrel": 42,
+      "Boulder": 32,
+      "Person": 31
+    },
+    "objects_per_frame": {
+      "0": 4,
+      "1": 303,
+      "2": 8
+    },
+    "boxes_from_unaugmented_copy": 311,
+    "frames_per_split": {
+      "train": 210,
+      "test": 65,
+      "val": 40
+    },
+    "boxes_per_split_class": {
+      "test": {
+        "Barrel": 10,
+        "Boulder": 6,
+        "Branch": 22,
+        "IronRod": 12,
+        "Jerrycan": 13,
+        "Person": 6
+      },
+      "train": {
+        "Barrel": 32,
+        "Boulder": 21,
+        "Branch": 55,
+        "IronRod": 45,
+        "Jerrycan": 43,
+        "Person": 13
+      },
+      "val": {
+        "Barrel": 0,
+        "Boulder": 5,
+        "Branch": 14,
+        "IronRod": 0,
+        "Jerrycan": 10,
+        "Person": 12
+      }
+    },
+    "test_frames_by_kind": {
+      "new_view": 36,
+      "new_placement": 29
+    }
+  }
+}

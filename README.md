@@ -19,6 +19,13 @@ VIRTUAL_ENV=.venv uv pip install -r requirements.txt --extra-index-url https://d
 | Step | Script |
 |---|---|
 | Download dataset | `scripts/01_download.py` |
+| Match augmented images to source frames, estimate along-track positions, split by track block | `scripts/02_split.py` |
+| Dataset statistics and labelled samples | `scripts/03_analyze.py` |
+| Build Ultralytics datasets (polygons, YOLO boxes) | `scripts/04_build_yolo.py` |
+| Train | `scripts/05_train.py` |
+| Evaluate (IoU, mAP, P/R, speed, error cases) | `scripts/06_eval.py` |
+| Demo on an image or folder | `scripts/demo.py` |
+| Meeting video and picked frames | `scripts/07_demo_media.py` |
 
 ## Data and license
 

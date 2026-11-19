@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+
+# data, training runs, weights (weights are published as GitHub Release assets)
+data/
+runs/
+*.pt
+*.onnx
+*.engine
+reports/demo.mp4
+
+# internal notes
+CLAUDE.md
+research.md

@@ -1,0 +1,2 @@
+Nhãn đúng: Thanh sắt
+missed=1 wrong_cls=0 false_alarms=2

@@ -29,6 +29,7 @@ def main():
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--name", default=None)
     ap.add_argument("--fraction", type=float, default=1.0)
+    ap.add_argument("--cache", default="ram", help="ram | disk | none")
     args = ap.parse_args()
 
     weights_dir = ROOT / "weights"
@@ -49,6 +50,7 @@ def main():
         seed=0,
         deterministic=False,
         fraction=args.fraction,
+        cache=False if args.cache == "none" else args.cache,
         cos_lr=True,
         close_mosaic=10,
         # top-down aerial views: vertical flips are as valid as horizontal ones

@@ -1,0 +1,2 @@
+Nhãn đúng: Cành cây, Cành cây
+missed=2 wrong_cls=0 false_alarms=2

@@ -2,7 +2,8 @@
 
 Rail (seg): Ultralytics mask/box mAP + per-class and track-union IoU on hole-filled GT masks.
 Obstacles (det): Ultralytics mAP50 / mAP50-95 / per-class P,R / confusion matrix on the test frames
-(unaugmented originals), plus P/R at fixed confidence thresholds (recall-first operating point).
+(unaugmented originals), overall and per test kind (new_placement / new_view), on the V2 augmented
+copies of the test frames (paper-like images, no leakage), plus P/R at fixed confidence thresholds.
 Speed: ms/image at batch 1 on this machine's GPU.
 Errors: worst cases rendered into reports/errors/.
 
@@ -10,17 +11,20 @@ Usage: .venv/bin/python scripts/06_eval.py --seg runs/seg/<run>/weights/best.pt 
 """
 import argparse
 import json
+import shutil
 import sys
 import time
 from pathlib import Path
 
 import cv2
 import numpy as np
+import pandas as pd
 import torch
+import yaml
 from ultralytics import YOLO
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import DATA, OBST_CLASSES, RAIL_CLASSES, REPORTS  # noqa: E402
+from common import DATA, OBST_CLASSES, RAIL_CLASSES, REPORTS, RUNS, SPLITS, v2_records  # noqa: E402
 from viz import draw_boxes, overlay_masks, put_text  # noqa: E402
 
 SEG = DATA / "yolo_seg"
@@ -50,7 +54,7 @@ def seg_class_masks(result, shape):
 def eval_seg(weights, imgsz, n_err):
     model = YOLO(weights)
     m = model.val(data=str(SEG / "data.yaml"), split="test", imgsz=imgsz, batch=1, plots=True,
-                  project=str(Path(weights).parents[1]), name="test_eval", exist_ok=True, verbose=False)
+                  project=str(Path(weights).resolve().parents[1]), name="test_eval", exist_ok=True, verbose=False)
     out = {"mask_mAP50": m.seg.map50, "mask_mAP50_95": m.seg.map, "box_mAP50": m.box.map50,
            "per_class_mask_mAP50_95": dict(zip(RAIL_CLASSES, m.seg.maps.tolist()))}
     inter = {c: 0 for c in RAIL_CLASSES + ["track"]}
@@ -121,12 +125,55 @@ def match(gt_cls, gt_box, pr_cls, pr_box, pr_conf, thr):
     return pc, pb, pf, tp, used
 
 
+def test_subset_yamls():
+    """data yaml per test subset: all, new_placement (unseen placement), new_view (same placement, far end of path)."""
+    v1 = pd.read_csv(SPLITS / "v1.csv")
+    out_dir = RUNS / "eval_lists"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    yamls = {"test": DET / "data.yaml"}
+    for kind in ["new_placement", "new_view"]:
+        ids = v1[(v1.split == "test") & (v1.test_kind == kind)].v1_id
+        lst = out_dir / f"test_{kind}.txt"
+        lst.write_text("\n".join(str(DET / "images" / "test" / f"{i}.jpg") for i in ids) + "\n")
+        y = out_dir / f"det_test_{kind}.yaml"
+        yaml.safe_dump({"path": str(DET), "train": "images/train", "val": str(lst), "test": str(lst),
+                        "names": dict(enumerate(OBST_CLASSES))}, open(y, "w"), sort_keys=False)
+        yamls[f"test_{kind}"] = y
+    yamls["v2_aug_of_test"] = v2_aug_test_yaml()
+    return yamls
+
+
+def v2_aug_test_yaml():
+    """V2 augmented copies of the test frames (same image type as the paper's test set, without leakage).
+    Labels are the original V2 boxes (one per image)."""
+    v2 = pd.read_csv(SPLITS / "v2.csv")
+    root = DATA / "yolo_det_v2aug_test"
+    if root.exists():
+        shutil.rmtree(root)
+    recs = {r["id"]: r for r in v2_records()}
+    cls_idx = {c: k for k, c in enumerate(OBST_CLASSES)}
+    for v2_id in v2[v2.split == "test"].v2_id:
+        r = recs[int(v2_id)]
+        img = root / "images" / "test" / f"{r['id']}.jpg"
+        img.parent.mkdir(parents=True, exist_ok=True)
+        img.symlink_to(r["path"].resolve())
+        lines = [f"{cls_idx[c]} {(x1 + x2) / 2 / r['w']:.6f} {(y1 + y2) / 2 / r['h']:.6f} {(x2 - x1) / r['w']:.6f} {(y2 - y1) / r['h']:.6f}"
+                 for c, x1, y1, x2, y2 in r["boxes"]]
+        lp = root / "labels" / "test" / f"{r['id']}.txt"
+        lp.parent.mkdir(parents=True, exist_ok=True)
+        lp.write_text("\n".join(lines) + "\n")
+    y = RUNS / "eval_lists" / "det_v2_aug_of_test.yaml"
+    yaml.safe_dump({"path": str(root), "train": "images/test", "val": "images/test", "test": "images/test",
+                    "names": dict(enumerate(OBST_CLASSES))}, open(y, "w"), sort_keys=False)
+    return y
+
+
 def eval_det(weights, imgsz, n_err):
     model = YOLO(weights)
     out = {}
-    for subset, yml in [("test", "data.yaml")]:
-        m = model.val(data=str(DET / yml), split="test", imgsz=imgsz, batch=1,
-                      plots=True, project=str(Path(weights).parents[1]), name=f"{subset}_eval", exist_ok=True,
+    for subset, yml in test_subset_yamls().items():
+        m = model.val(data=str(yml), split="test", imgsz=imgsz, batch=1,
+                      plots=True, project=str(Path(weights).resolve().parents[1]), name=f"{subset}_eval", exist_ok=True,
                       verbose=False)
         res = {"mAP50": m.box.map50, "mAP50_95": m.box.map, "precision": m.box.mp, "recall": m.box.mr,
                "per_class": {}}

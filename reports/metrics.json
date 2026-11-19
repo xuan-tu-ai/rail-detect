@@ -1,0 +1,627 @@
+{
+  "seg": {
+    "seg_yolo11s-seg_1024": {
+      "mask_mAP50": 0.7898532228425328,
+      "mask_mAP50_95": 0.4979489636797201,
+      "box_mAP50": 0.7712122730453752,
+      "per_class_mask_mAP50_95": {
+        "rail_inside": 0.7535845241094985,
+        "rail_lines": 0.24231340324994158
+      },
+      "iou_dataset": {
+        "rail_inside": 0.9364,
+        "rail_lines": 0.6259,
+        "track": 0.9555
+      },
+      "iou_per_image_mean": {
+        "rail_inside": 0.9349,
+        "rail_lines": 0.6203,
+        "track": 0.9538
+      },
+      "n_test_images": 65,
+      "speed": {
+        "ms_per_image_median": 8.5,
+        "ms_p90": 8.7,
+        "imgsz": 1024,
+        "batch": 1,
+        "device": "NVIDIA GeForce RTX 4060 Ti",
+        "note": "end-to-end predict(), image already decoded"
+      }
+    },
+    "seg_yolo11m-seg_1024": {
+      "mask_mAP50": 0.7890175682472229,
+      "mask_mAP50_95": 0.4952108046453626,
+      "box_mAP50": 0.7734021105837363,
+      "per_class_mask_mAP50_95": {
+        "rail_inside": 0.7413534359429783,
+        "rail_lines": 0.24906817334774675
+      },
+      "iou_dataset": {
+        "rail_inside": 0.9305,
+        "rail_lines": 0.6244,
+        "track": 0.9514
+      },
+      "iou_per_image_mean": {
+        "rail_inside": 0.9285,
+        "rail_lines": 0.6158,
+        "track": 0.9492
+      },
+      "n_test_images": 65,
+      "speed": {
+        "ms_per_image_median": 19.8,
+        "ms_p90": 20.1,
+        "imgsz": 1024,
+        "batch": 1,
+        "device": "NVIDIA GeForce RTX 4060 Ti",
+        "note": "end-to-end predict(), image already decoded"
+      }
+    }
+  },
+  "det": {
+    "det_yolo11s_1024": {
+      "test": {
+        "mAP50": 0.6886956327762009,
+        "mAP50_95": 0.43187441656055797,
+        "precision": 0.6653639818442748,
+        "recall": 0.673989898989899,
+        "per_class": {
+          "Branch": {
+            "P": 0.6371,
+            "R": 0.2273,
+            "AP50": 0.3252,
+            "AP50_95": 0.1299
+          },
+          "IronRod": {
+            "P": 0.2303,
+            "R": 0.0833,
+            "AP50": 0.1003,
+            "AP50_95": 0.051
+          },
+          "Barrel": {
+            "P": 0.84,
+            "R": 0.9,
+            "AP50": 0.9783,
+            "AP50_95": 0.6527
+          },
+          "Boulder": {
+            "P": 0.5921,
+            "R": 1.0,
+            "AP50": 0.8983,
+            "AP50_95": 0.4822
+          },
+          "Jerrycan": {
+            "P": 0.993,
+            "R": 1.0,
+            "AP50": 0.995,
+            "AP50_95": 0.6317
+          },
+          "Person": {
+            "P": 0.6998,
+            "R": 0.8333,
+            "AP50": 0.835,
+            "AP50_95": 0.6437
+          }
+        }
+      },
+      "test_new_placement": {
+        "mAP50": 0.5143945340501792,
+        "mAP50_95": 0.3512526827650707,
+        "precision": 0.9117895843688808,
+        "recall": 0.4541666666666667,
+        "per_class": {
+          "Branch": {
+            "P": 1.0,
+            "R": 0.0,
+            "AP50": 0.0372,
+            "AP50_95": 0.0037
+          },
+          "IronRod": {
+            "P": 0.9499,
+            "R": 0.0833,
+            "AP50": 0.207,
+            "AP50_95": 0.1049
+          },
+          "Barrel": {
+            "P": 0.8815,
+            "R": 0.9,
+            "AP50": 0.9783,
+            "AP50_95": 0.6527
+          },
+          "Person": {
+            "P": 0.8158,
+            "R": 0.8333,
+            "AP50": 0.835,
+            "AP50_95": 0.6437
+          }
+        }
+      },
+      "test_new_view": {
+        "mAP50": 0.7878444669335302,
+        "mAP50_95": 0.4377075130184493,
+        "precision": 0.8202460777684895,
+        "recall": 0.7949040640246556,
+        "per_class": {
+          "Branch": {
+            "P": 0.5933,
+            "R": 0.3847,
+            "AP50": 0.3735,
+            "AP50_95": 0.1519
+          },
+          "Boulder": {
+            "P": 0.9386,
+            "R": 1.0,
+            "AP50": 0.995,
+            "AP50_95": 0.5296
+          },
+          "Jerrycan": {
+            "P": 0.9289,
+            "R": 1.0,
+            "AP50": 0.995,
+            "AP50_95": 0.6317
+          }
+        }
+      },
+      "v2_aug_of_test": {
+        "mAP50": 0.5394561500923151,
+        "mAP50_95": 0.30244005395261364,
+        "precision": 0.5870971433226879,
+        "recall": 0.5569043166813401,
+        "per_class": {
+          "Branch": {
+            "P": 0.5027,
+            "R": 0.1848,
+            "AP50": 0.2141,
+            "AP50_95": 0.0712
+          },
+          "IronRod": {
+            "P": 0.0543,
+            "R": 0.0152,
+            "AP50": 0.0282,
+            "AP50_95": 0.0092
+          },
+          "Barrel": {
+            "P": 0.6489,
+            "R": 0.7656,
+            "AP50": 0.7863,
+            "AP50_95": 0.445
+          },
+          "Boulder": {
+            "P": 0.7159,
+            "R": 0.7089,
+            "AP50": 0.6288,
+            "AP50_95": 0.3527
+          },
+          "Jerrycan": {
+            "P": 0.8029,
+            "R": 0.7295,
+            "AP50": 0.7129,
+            "AP50_95": 0.3898
+          },
+          "Person": {
+            "P": 0.798,
+            "R": 0.9375,
+            "AP50": 0.8664,
+            "AP50_95": 0.5467
+          }
+        }
+      },
+      "pr_at_conf": {
+        "0.05": {
+          "P": 0.2632,
+          "R": 0.6522,
+          "per_class_R": {
+            "Branch": 0.4091,
+            "IronRod": 0.25,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.1111,
+            "IronRod": 0.125,
+            "Barrel": 0.5882,
+            "Boulder": 0.1923,
+            "Jerrycan": 0.8667,
+            "Person": 0.625
+          }
+        },
+        "0.1": {
+          "P": 0.3761,
+          "R": 0.6377,
+          "per_class_R": {
+            "Branch": 0.4091,
+            "IronRod": 0.1667,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.1765,
+            "IronRod": 0.1818,
+            "Barrel": 0.7143,
+            "Boulder": 0.25,
+            "Jerrycan": 0.9286,
+            "Person": 0.7143
+          }
+        },
+        "0.15": {
+          "P": 0.4731,
+          "R": 0.6377,
+          "per_class_R": {
+            "Branch": 0.4091,
+            "IronRod": 0.1667,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.25,
+            "IronRod": 0.2857,
+            "Barrel": 0.8333,
+            "Boulder": 0.2941,
+            "Jerrycan": 0.9286,
+            "Person": 0.7143
+          }
+        },
+        "0.25": {
+          "P": 0.6232,
+          "R": 0.6232,
+          "per_class_R": {
+            "Branch": 0.4091,
+            "IronRod": 0.0833,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.3913,
+            "IronRod": 1.0,
+            "Barrel": 1.0,
+            "Boulder": 0.3333,
+            "Jerrycan": 0.9286,
+            "Person": 0.8333
+          }
+        },
+        "0.35": {
+          "P": 0.7,
+          "R": 0.6087,
+          "per_class_R": {
+            "Branch": 0.4091,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.5294,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.3846,
+            "Jerrycan": 0.9286,
+            "Person": 0.8333
+          }
+        },
+        "0.5": {
+          "P": 0.8864,
+          "R": 0.5652,
+          "per_class_R": {
+            "Branch": 0.3636,
+            "IronRod": 0.0,
+            "Barrel": 0.9,
+            "Boulder": 0.6667,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          },
+          "per_class_P": {
+            "Branch": 0.8889,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.5714,
+            "Jerrycan": 1.0,
+            "Person": 0.8333
+          }
+        }
+      },
+      "n_error_candidates": {
+        "fn_images": 25,
+        "fp_images": 5
+      },
+      "speed": {
+        "ms_per_image_median": 6.8,
+        "ms_p90": 7.0,
+        "imgsz": 1024,
+        "batch": 1,
+        "device": "NVIDIA GeForce RTX 4060 Ti",
+        "note": "end-to-end predict(), image already decoded"
+      }
+    },
+    "det_yolo11m_1024": {
+      "test": {
+        "mAP50": 0.6863144347235258,
+        "mAP50_95": 0.43778063812756934,
+        "precision": 0.761763664452047,
+        "recall": 0.6672950015630432,
+        "per_class": {
+          "Branch": {
+            "P": 0.6864,
+            "R": 0.1364,
+            "AP50": 0.2276,
+            "AP50_95": 0.0808
+          },
+          "IronRod": {
+            "P": 0.142,
+            "R": 0.0833,
+            "AP50": 0.085,
+            "AP50_95": 0.0595
+          },
+          "Barrel": {
+            "P": 1.0,
+            "R": 0.9884,
+            "AP50": 0.995,
+            "AP50_95": 0.7085
+          },
+          "Boulder": {
+            "P": 0.8031,
+            "R": 0.8333,
+            "AP50": 0.8202,
+            "AP50_95": 0.5353
+          },
+          "Jerrycan": {
+            "P": 1.0,
+            "R": 0.9623,
+            "AP50": 0.995,
+            "AP50_95": 0.6346
+          },
+          "Person": {
+            "P": 0.9391,
+            "R": 1.0,
+            "AP50": 0.995,
+            "AP50_95": 0.6079
+          }
+        }
+      },
+      "test_new_placement": {
+        "mAP50": 0.51875,
+        "mAP50_95": 0.34399226190476184,
+        "precision": 0.9459616534229234,
+        "recall": 0.5162511187049117,
+        "per_class": {
+          "Branch": {
+            "P": 1.0,
+            "R": 0.0,
+            "AP50": 0.0,
+            "AP50_95": 0.0
+          },
+          "IronRod": {
+            "P": 0.8408,
+            "R": 0.0833,
+            "AP50": 0.085,
+            "AP50_95": 0.0595
+          },
+          "Barrel": {
+            "P": 1.0,
+            "R": 0.9817,
+            "AP50": 0.995,
+            "AP50_95": 0.7085
+          },
+          "Person": {
+            "P": 0.943,
+            "R": 1.0,
+            "AP50": 0.995,
+            "AP50_95": 0.6079
+          }
+        }
+      },
+      "test_new_view": {
+        "mAP50": 0.6972077298307532,
+        "mAP50_95": 0.42276582325788603,
+        "precision": 0.8202663682310455,
+        "recall": 0.65319521299026,
+        "per_class": {
+          "Branch": {
+            "P": 0.6609,
+            "R": 0.1579,
+            "AP50": 0.2711,
+            "AP50_95": 0.0957
+          },
+          "Boulder": {
+            "P": 0.7999,
+            "R": 0.8333,
+            "AP50": 0.8255,
+            "AP50_95": 0.538
+          },
+          "Jerrycan": {
+            "P": 1.0,
+            "R": 0.9684,
+            "AP50": 0.995,
+            "AP50_95": 0.6346
+          }
+        }
+      },
+      "v2_aug_of_test": {
+        "mAP50": 0.5562814112081997,
+        "mAP50_95": 0.3041682625189182,
+        "precision": 0.6089084974703888,
+        "recall": 0.5802610486470292,
+        "per_class": {
+          "Branch": {
+            "P": 0.3713,
+            "R": 0.2283,
+            "AP50": 0.2343,
+            "AP50_95": 0.0729
+          },
+          "IronRod": {
+            "P": 0.0564,
+            "R": 0.0455,
+            "AP50": 0.0091,
+            "AP50_95": 0.0047
+          },
+          "Barrel": {
+            "P": 0.7976,
+            "R": 0.9062,
+            "AP50": 0.8665,
+            "AP50_95": 0.4794
+          },
+          "Boulder": {
+            "P": 0.7407,
+            "R": 0.6562,
+            "AP50": 0.6877,
+            "AP50_95": 0.391
+          },
+          "Jerrycan": {
+            "P": 0.7944,
+            "R": 0.7761,
+            "AP50": 0.6598,
+            "AP50_95": 0.3574
+          },
+          "Person": {
+            "P": 0.893,
+            "R": 0.8692,
+            "AP50": 0.8802,
+            "AP50_95": 0.5196
+          }
+        }
+      },
+      "pr_at_conf": {
+        "0.05": {
+          "P": 0.4421,
+          "R": 0.6087,
+          "per_class_R": {
+            "Branch": 0.3182,
+            "IronRod": 0.0833,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.25,
+            "IronRod": 0.1,
+            "Barrel": 0.7692,
+            "Boulder": 0.4167,
+            "Jerrycan": 0.52,
+            "Person": 0.8571
+          }
+        },
+        "0.1": {
+          "P": 0.6,
+          "R": 0.6087,
+          "per_class_R": {
+            "Branch": 0.3182,
+            "IronRod": 0.0833,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.3182,
+            "IronRod": 0.1667,
+            "Barrel": 0.9091,
+            "Boulder": 0.5556,
+            "Jerrycan": 0.8667,
+            "Person": 0.8571
+          }
+        },
+        "0.15": {
+          "P": 0.6885,
+          "R": 0.6087,
+          "per_class_R": {
+            "Branch": 0.3182,
+            "IronRod": 0.0833,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.3889,
+            "IronRod": 0.25,
+            "Barrel": 1.0,
+            "Boulder": 0.625,
+            "Jerrycan": 0.9286,
+            "Person": 0.8571
+          }
+        },
+        "0.25": {
+          "P": 0.7925,
+          "R": 0.6087,
+          "per_class_R": {
+            "Branch": 0.3182,
+            "IronRod": 0.0833,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.5,
+            "IronRod": 0.5,
+            "Barrel": 1.0,
+            "Boulder": 0.7143,
+            "Jerrycan": 1.0,
+            "Person": 0.8571
+          }
+        },
+        "0.35": {
+          "P": 0.8511,
+          "R": 0.5797,
+          "per_class_R": {
+            "Branch": 0.2727,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.6667,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.7143,
+            "Jerrycan": 1.0,
+            "Person": 0.8571
+          }
+        },
+        "0.5": {
+          "P": 0.9474,
+          "R": 0.5217,
+          "per_class_R": {
+            "Branch": 0.1364,
+            "IronRod": 0.0,
+            "Barrel": 0.9,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          },
+          "per_class_P": {
+            "Branch": 0.75,
+            "IronRod": 0.0,
+            "Barrel": 1.0,
+            "Boulder": 0.8333,
+            "Jerrycan": 1.0,
+            "Person": 1.0
+          }
+        }
+      },
+      "n_error_candidates": {
+        "fn_images": 25,
+        "fp_images": 3
+      },
+      "speed": {
+        "ms_per_image_median": 16.1,
+        "ms_p90": 16.6,
+        "imgsz": 1024,
+        "batch": 1,
+        "device": "NVIDIA GeForce RTX 4060 Ti",
+        "note": "end-to-end predict(), image already decoded"
+      }
+    }
+  },
+  "gpu_busy_note": "GPU shared with other jobs during timing"
+}

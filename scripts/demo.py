@@ -124,7 +124,7 @@ class RailObstacleDemo:
         banner = f"Phát hiện {n} vật cản trên ray"
         out = put_text(out, (round(w / 64), round(w / 64)), banner, round(size * 1.35), bg=RED if n else (40, 120, 40), pad=12)
         out = put_text(out, (round(w / 64), h - round(size * 0.8) - round(w / 64)),
-                       f"Vùng ray (xanh) · ngưỡng ≤ {self.buffer_m:g} m", round(size * 0.7), bg=(30, 30, 30), pad=8)
+                       f"Vùng ray (xanh) · báo vật cản cách ray dưới {self.buffer_m:g} m", round(size * 0.7), bg=(30, 30, 30), pad=8)
         return out
 
 

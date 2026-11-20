@@ -1,0 +1,28 @@
+{
+  "orthophoto_px": [
+    1899,
+    3117
+  ],
+  "orthophoto_cm_per_px": 0.5,
+  "dsm_cm_per_px": 1.0,
+  "covered_area_m2": 98.5,
+  "rail_visible_length_m": 12.4,
+  "rail_centre_spacing_m": 1.687,
+  "rail_centre_spacing_expected_m": 1.746,
+  "scale_error_pct": -3.4,
+  "rail_spacing_samples": 202,
+  "sleeper_period_m": 0.75,
+  "sleeper_period_autocorr": 0.79,
+  "levelling": {
+    "rail_points": 485,
+    "tilt_deg": 5.92,
+    "cross_level_before_m": 0.196,
+    "rail_top_residual_std_after_m": 0.048
+  },
+  "height_rel_rail_top_p1_p50_p99_m": [
+    -0.61,
+    -0.29,
+    0.03
+  ],
+  "note": "positions from SIFT frame solve + nominal UTM origin; no GPS, relative geometry only"
+}

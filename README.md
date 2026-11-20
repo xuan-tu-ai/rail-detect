@@ -26,6 +26,9 @@ VIRTUAL_ENV=.venv uv pip install -r requirements.txt --extra-index-url https://d
 | Evaluate (IoU, mAP, P/R, speed, error cases) | `scripts/06_eval.py` |
 | Demo on an image or folder | `scripts/demo.py` |
 | Meeting video and picked frames | `scripts/07_demo_media.py` |
+| 3D map: ODM project (frames, obstacle masks, camera positions) | `scripts/08_map_prepare.py` |
+| 3D map: orthophoto, DSM, point cloud (OpenDroneMap, Docker) | `scripts/09_map_odm.sh` |
+| 3D map: scale check against rail gauge, levelling, previews | `scripts/10_map_check.py` |
 
 ## Data and license
 
